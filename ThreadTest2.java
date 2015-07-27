@@ -21,8 +21,8 @@ public class ThreadTest2 extends Thread
 
     public static void main(String[] args)
     {
-        ThreadTest2 thread1=new ThreadTest2("½º·¹µå1");
-        ThreadTest2 thread2=new ThreadTest2("½º·¹µå2");
+        ThreadTest2 thread1=new ThreadTest2("ìŠ¤ë ˆë“œ1");
+        ThreadTest2 thread2=new ThreadTest2("ìŠ¤ë ˆë“œ2");
 
         thread1.setPriority(MIN_PRIORITY);
         thread2.setPriority(MAX_PRIORITY);
