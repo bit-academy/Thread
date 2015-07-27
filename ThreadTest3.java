@@ -47,9 +47,9 @@ public class ThreadTest3 extends Thread
 
     public static void main(String[] args)
     {
-        ThreadTest3 thread1=new ThreadTest3("Ã¹ ¹øÂ°");
-        ThreadTest3 thread2=new ThreadTest3("µÎ ¹øÂ°");
-        ThreadTest3 thread3=new ThreadTest3("¼¼ ¹øÂ°");
+        ThreadTest3 thread1=new ThreadTest3("ì²« ë²ˆì§¸");
+        ThreadTest3 thread2=new ThreadTest3("ë‘ ë²ˆì§¸");
+        ThreadTest3 thread3=new ThreadTest3("ì„¸ ë²ˆì§¸");
 
         thread1.start();
         thread2.start();
