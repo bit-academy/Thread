@@ -1,42 +1,34 @@
-public class ThreadTest1 extends Thread
-{
-    int ÁÖ±â;
-    int number;
+public class ThreadTest1 extends Thread {
+	int ì£¼ê¸°;
+	int number;
 
-    public ThreadTest1(String name, int ÁÖ±â)
-    {
-        super(name);
-        this.ÁÖ±â=ÁÖ±â;
-    }
+	public ThreadTest1(String name, int ì£¼ê¸°) {
+		super(name);
+		this.ì£¼ê¸° = ì£¼ê¸°;
+	}
 
-    public void run()
-    {
-        while (true)
-        {
-            try
-            {
-                sleep(ÁÖ±â);
-            } catch(InterruptedException ie)
-            {
-                ie.printStackTrace();
-            }
+	public void run() {
+		while (true) {
+			try {
+				sleep(ì£¼ê¸°);
+			} catch (InterruptedException ie) {
+				ie.printStackTrace();
+			}
 
-            System.out.println(getName() + " : " + number++);
-            if (number>10)
-            {
-                break;
-            }
-        }
-    }
+			System.out.println(getName() + " : " + number++);
+			if (number > 10) {
+				break;
+			}
+		}
+	}
 
-    public static void main(String[] args)
-    {
-        ThreadTest1 first=new ThreadTest1("Ã¹ ¹øÂ°", 1000);
-        ThreadTest1 second=new ThreadTest1("µÎ ¹øÂ°", 2000);
-        ThreadTest1 third=new ThreadTest1("¼¼ ¹øÂ°", 3000);
+	public static void main(String[] args) {
+		ThreadTest1 first = new ThreadTest1("ì²« ë²ˆì§¸", 1000);
+		ThreadTest1 second = new ThreadTest1("ë‘ ë²ˆì§¸", 2000);
+		ThreadTest1 third = new ThreadTest1("ì„¸ ë²ˆì§¸", 3000);
 
-        first.start();
-        second.start();
-        third.start();
-    }
+		first.start();
+		second.start();
+		third.start();
+	}
 }

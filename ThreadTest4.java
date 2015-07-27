@@ -1,34 +1,26 @@
-public class ThreadTest4 extends Thread
-{
-    public void run()
-    {
-        while(true)
-        {
-            System.out.print("Runnable ");
-            try
-            {
-                    sleep(1000);
-            } catch(InterruptedException ie)
-            {
-                    System.out.println("ÁßÁö½ÅÈ£°¡ Ã³¸®µÇ¾ú½À´Ï´Ù.");
-                    break;
-            }
-        }
-    }
+public class ThreadTest4 extends Thread {
+	public void run() {
+		while (true) {
+			System.out.print("Runnable ");
+			try {
+				sleep(1000);
+			} catch (InterruptedException ie) {
+				System.out.println("ì¤‘ì§€ì‹ í˜¸ê°€ ì²˜ë¦¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
+				break;
+			}
+		}
+	}
 
-    public static void main(String[] args)
-    {
-        ThreadTest4 thread1=new ThreadTest4();
-        thread1.start();
+	public static void main(String[] args) {
+		ThreadTest4 thread1 = new ThreadTest4();
+		thread1.start();
 
-        try
-        {
-                Thread.sleep(3000);
-        } catch(InterruptedException ie)
-        {
-        }
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException ie) {
+		}
 
-        System.out.print(" ÁßÁö½ÅÃ»À» ÇÕ´Ï´Ù. ");
-        thread1.interrupt();
-    }
+		System.out.print(" ì¤‘ì§€ì‹ ì²­ì„ í•©ë‹ˆë‹¤. ");
+		thread1.interrupt();
+	}
 }
