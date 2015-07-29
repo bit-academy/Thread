@@ -1,17 +1,17 @@
 public class DaemonTest extends Thread {
-	public void run() {
-		while (true) {
-			System.out.println("살아있음");
+    public void run() {
+        while (true) {
+            System.out.println("살아있음");
 
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
 			public void run() {
