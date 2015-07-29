@@ -28,13 +28,11 @@
  */
 import java.awt.Point;
 
-public strictfp class Coherence
-{
+public strictfp class Coherence {
     static Point p = new Point();
     static Point q = p;
 
-    public strictfp static void check()
-    {
+    public strictfp static void check() {
         boolean optimizationDone = true;
         boolean interleavingSeen = false;
         boolean loopHoistingDone = true;
@@ -42,8 +40,7 @@ public strictfp class Coherence
         Point qq = q;
         int i, i0, j, k, m;
         i = 0;
-        for (int l = 0; l < 10000000; l++)
-        {
+        for (int l = 0; l < 10000000; l++) {
             i0 = i;
             i = pp.x;
             j = qq.x;
@@ -56,53 +53,40 @@ public strictfp class Coherence
                 optimizationDone = false;
             if (i != j)
                 interleavingSeen = true;
-            if (j > k)
-            {
-                System.out.println(
-                                   "i = " + i
-                                   + ", j = " + j
-                                   + ", k = " + k
-                                   + ", j > k -- in violation of JMM");
+            if (j > k) {
+                System.out.println("i = " + i + ", j = " + j + ", k = " + k
+                        + ", j > k -- in violation of JMM");
                 System.exit(0);
             }
         }
-        if (!optimizationDone)
-        {
+        if (!optimizationDone) {
             System.out.println("optimization not done (yet)");
             interleavingSeen = false;
         } else if (loopHoistingDone)
-            System.out.println(
-                       "Extremely poor interleaving or Loop hoisting done");
+            System.out
+                    .println("Extremely poor interleaving or Loop hoisting done");
         else if (!interleavingSeen)
             System.out.println("no intra-loop interleaving seen");
         else
-            System.out.println(
-                "Saw intra-loop interleaving and only legal optimizations");
+            System.out
+                    .println("Saw intra-loop interleaving and only legal optimizations");
         Thread.yield();
 
     }
 
-
-    public static void main(String args[])
-    {
-        Thread t1 = new Thread()
-        {
-            public void run()
-            {
-                while (true)
-                {
-                    for (int l = 0; l < 10000000; l++)
-                    {
+    public static void main(String args[]) {
+        Thread t1 = new Thread() {
+            public void run() {
+                while (true) {
+                    for (int l = 0; l < 10000000; l++) {
                         p.x++;
                     }
                     Thread.yield();
                 }
             }
         };
-        Thread t2 = new Thread()
-        {
-            public void run()
-            {
+        Thread t2 = new Thread() {
+            public void run() {
                 for (int l = 0; l < 10; l++)
                     check();
                 System.out.println("No violation of the JMM detected");

@@ -12,17 +12,17 @@ public class DaemonTest extends Thread {
     }
 
     public static void main(String[] args) throws InterruptedException {
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			@Override
-			public void run() {
-				System.out.println("종료됨");
-			}
-		});
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                System.out.println("종료됨");
+            }
+        });
 
-		Thread thread = new DaemonTest();
-		thread.setDaemon(true);
-		thread.start();
+        Thread thread = new DaemonTest();
+        thread.setDaemon(true);
+        thread.start();
 
-		Thread.sleep(1000);
-	}
+        Thread.sleep(1000);
+    }
 }
